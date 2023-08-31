@@ -1,16 +1,18 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lsps = { "lua_ls", "rust_analyzer", "zls", "bashls" }
+local get_capabilities = function()
+	return require("cmp_nvim_lsp").default_capabilities()
+end
+local lsps = { "lua_ls", "rust_analyzer", "zls", "bashls", "gopls", "html" }
 
 local handlers = {
 	function(server_name)
 		require("lspconfig")[server_name].setup({
-			capabilities = capabilities,
+			capabilities = get_capabilities(),
 		})
 	end,
 
 	["rust_analyzer"] = function()
 		require("rust-tools").setup({
-			capabilities = capabilities,
+			capabilities = get_capabilities(),
 		})
 	end,
 
@@ -23,7 +25,7 @@ local handlers = {
 					},
 				},
 			},
-			capabilities = capabilities,
+			capabilities = get_capabilities(),
 		})
 	end,
 }

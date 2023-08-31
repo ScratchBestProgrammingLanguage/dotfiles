@@ -2,6 +2,7 @@ local cfg = function()
 	local cfg = {
 		filetype = {
 			lua = require("formatter.filetypes.lua").stylua,
+			go = require("formatter.filetypes.go").gofmt,
 		},
 	}
 

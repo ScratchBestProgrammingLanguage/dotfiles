@@ -7,10 +7,12 @@ local keymaps = {
 		{ "<leader>fg", telescope.live_grep, "[F]ind [G]rep" },
 		{ "<leader>fb", telescope.buffers, "[F]ind [B]uffers" },
 		{ "<leader>fh", telescope.help_tags, "[F]ind [H]elp" },
+		{ "<leader>fr", telescope.git_files, "[F]ind [R]epo" },
 
 		-- Lsp
 		{ "<leader>lh", vim.lsp.buf.hover, "[L]sp [H]over" },
 		{ "<leader>gd", vim.lsp.buf.definition, "[G]oto [D]efinition" },
+		{ "<leader>rn", vim.lsp.buf.rename, "[R]e-[N]ame" },
 	},
 }
 

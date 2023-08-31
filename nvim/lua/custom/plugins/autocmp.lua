@@ -2,6 +2,8 @@ local config = function()
 	local cmp = require("cmp")
 	local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
+	require("luasnip.loaders.from_vscode").lazy_load()
+
 	cmp.setup({
 		snippet = {
 			expand = function(args)
@@ -15,9 +17,10 @@ local config = function()
 		}),
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },
-			{ name = "luasnip" },
-		}, {
 			{ name = "buffer" },
+			{ name = "luasnip" },
+			{ name = "nvim_lua" },
+			{ name = "path" },
 		}),
 		-- Auto select first item
 		completion = {
@@ -28,9 +31,10 @@ local config = function()
 	-- Git filetype.
 	cmp.setup.filetype("gitcommit", {
 		sources = cmp.config.sources({
-			{ name = "git" },
-		}, {
+			{ name = "nvim_lsp" },
 			{ name = "buffer" },
+			{ name = "luasnip" },
+			{ name = "path" },
 		}),
 	})
 
